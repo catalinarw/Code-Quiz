@@ -1,0 +1,45 @@
+.allDivs {
+display: inline-block;    
+box-sizing: border-box;
+width: 50%;
+border: solid #5B6DCD 10px;
+padding: 5px;
+margin-top: 100px;
+}
+
+h1 {
+    text-emphasis: bold;
+}
+
+#parentDiv {
+    text-align: center;
+}
+
+/* Start Quiz Element */
+#firstDiv {
+    display: none;
+    /* display: visible; */
+}
+
+/* Questions and answers element */
+#secondDiv {
+    display: none;
+    /* display: visible; */
+    text-align: left;
+}
+
+/* All done div */
+#thirdDiv {
+    display: none;
+    /* display: visible; */
+}
+
+#fourthDiv {
+    /* display: none; */
+    display: visible;
+}
+
+.btn-primary {
+    background-color: purple;
+    color: white;
+}

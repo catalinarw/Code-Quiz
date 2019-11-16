@@ -1,84 +1,105 @@
 <!doctype html>
+
 <html lang="en">
+
   <head>
-    <!-- Required meta tags -->
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
 
     <title>Catalina's Code Quiz</title>
+
   </head>
+
   <body>
 
     <!--view high scores and timer -->
-    <header>
+    <header class="container">
 
-        <p>
-            <button>View High Scores</button>
-        </p>
+        <div class="row">
 
-        <p>
-            <!-- Timer -->
-        </p>
+            <div class="col">
 
+                <button>View Highscores</button>
+
+            </div>
+
+            <div class="col-5"></div>
+
+            <div class="col">
+
+                <!-- Timer -->
+
+            </div>
+
+        </div>
+
+        
     </header>
-      
-    <!-- Start Challenge div  -->
-    <div>
 
-        <header>Coding Quiz Challenge</header>
+    <!-- container div -->
+    <div id="parentDiv">
+
+        <!-- Start Challenge div  -->
+        <div class="allDivs" id="firstDiv">
+
+            <h1>Coding Quiz Challenge</h1>
        
-        <p>Try to answer the following code-related questions within the time limit. Keep in mind that inncorrect answers will penalize your score/time by 10 seconds</p>
+            <p>Try to answer the following code-related questions within the time limit. Keep in mind that inncorrect answers will penalize your score/time by 10 seconds</p>
 
-        <button>Start Quiz</button>
+            <button type="button" class="btn btn-primary btn-sm">Start Quiz</button>
 
-    </div>
+        </div>
         
-    <!-- question and answer div -->
-    <div>
-        <!-- Question -->
-        <h1></h1>
+        <!-- question and answer div -->
+        <div class="allDivs" id="secondDiv">
+            <!-- Question -->
+            <h2>Commonly used data types do not include</h2>
 
-        <!-- Choices -->
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
+            <!-- Choices -->
+            <button type="button" class="btn btn-primary btn-sm options" >1. Strings</button>
+            <br>
+            <button type="button" class="btn btn-primary btn-sm options">2. Booleans</button>
+            <br>
+            <button type="button" class="btn btn-primary btn-sm options">3. Alerts</button>
+            <br>
+            <button type="button" class="btn btn-primary btn-sm options">4. Numbers</button>
         
-    </div>
+        </div>
         
-    <!-- all done div -->
-    <div>
-        <h1>All Done!</h1>
+        <!-- all done div -->
+        <div class="allDivs" id="thirdDiv">
+            <h1>All Done!</h1>
 
-        <p>
-            <!-- Your final score is:  -->
-        </p>
-
-        <form>
+            <p>Your Final Score Is: </p>
+    
+            <form>
 
             <!-- Initials text box -->
             Enter Initials: <input type="text">
             <!-- Submit Score Button -->
             <input type="submit">
 
-        </form>
-    </div>
-        
-    <!-- highscore div -->
-    <div>
-        <h1>High Scores</h1>
+            </form>
+        </div>
 
-        <ul></ul>
-
-        <button>Go Back</button>
-
-        <button>Clear High Scores</button>
-        
-    </div>
       
+        <!-- highscore div -->
+        <div class="allDivs" id="fourthDiv">
+            <h1>High Scores</h1>
+
+            <ul></ul>
+
+            <button type="button" class="btn btn-primary btn-sm">Go Back</button>
+
+            <button type="button" class="btn btn-primary btn-sm">Clear High Scores</button>
+        
+        </div>
+
+    </div> 
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
