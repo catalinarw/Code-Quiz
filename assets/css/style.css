@@ -23,24 +23,24 @@ h1 {
 /* Start Quiz Element */
 #firstDiv {
     /* display: none; */
-    display: visible;
+    /* display: visible; */
 }
 
 /* Questions and answers element */
 #secondDiv {
-    display: none;
-    /* display: visible; */
+    /* display: none;
+    display: visible; */
     text-align: left;
 }
 
 /* All done div */
 #thirdDiv {
-    display: none;
+    /* display: none; */
     /* display: visible; */
 }
 
 #fourthDiv {
-    display: none;
+    /* display: none; */
     /* display: visible; */
 }
 
