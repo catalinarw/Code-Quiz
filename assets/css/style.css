@@ -11,14 +11,19 @@ h1 {
     text-emphasis: bold;
 }
 
+/* Timer Element */
+/* #timer {
+    display: none;
+    /* display: visible;  */
+/* } */ 
 #parentDiv {
     text-align: center;
 }
 
 /* Start Quiz Element */
 #firstDiv {
-    display: none;
-    /* display: visible; */
+    /* display: none; */
+    display: visible;
 }
 
 /* Questions and answers element */
@@ -35,8 +40,8 @@ h1 {
 }
 
 #fourthDiv {
-    /* display: none; */
-    display: visible;
+    display: none;
+    /* display: visible; */
 }
 
 .btn-primary {
