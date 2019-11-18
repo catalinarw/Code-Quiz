@@ -6,27 +6,41 @@ var startDiv = document.querySelector("#firstDiv");
 var QnADiv = document.querySelector("#secondDiv");
 var allDoneDiv = document.querySelector("#thirdDiv");
 var highScoresDiv = document.querySelector("#fourthDiv");
+var options = document.querySelectorAll(".btn btn-primary btn-sm options");
+var questionText = document.querySelector("#questionText");
+var option1 = document.querySelector("#button1");
+var option2 = document.querySelector("#button2");
+var option3 = document.querySelector("#button3");
+var option4 = document.querySelector("#button4");
+var finalScore = document.querySelector("#finalScore");
+var submitScore = document.querySelector("#submitScore");
+var initials = document.querySelector("#initials");
+var highScoreButton = document.querySelector("#highScoreButton");
+var highScoresList = document.querySelector("#highScoresList")
+// changes questions object into an array
+var questionsA = Object.values(questions);
+
+var currentIndex = 0;
+
+// highScoreButton.style.visibility = "visible";
 startDiv.style.visibility = "visible";
 timer.style.visibility = "hidden";
 QnADiv.style.visibility = "hidden";
 allDoneDiv.style.visibility = "hidden";
 highScoresDiv.style.visibility = "hidden";
 
-// startButton.addEventListener("click", startTimer);
 
-// function startTimer() {
-    // timer.style.visibility = "visible";
-    
-    // }
-    // 1. user clicks start quiz button
+    // user clicks start quiz button
 startButton.addEventListener("click", function startQuiz() {
-    // 2. timer appears
+    //  timer appears
     timer.style.visibility = "visible";
+// Start quiz Div is hidden
     startDiv.style.visibility = "hidden";
-    QnADiv.style.visibility = "visible";
-    
+    // Question and Answer Div appears 
+    QnADiv.style.visibility = "visible";  
     });
-// 3. timer starts
+
+// Timer Function
 setInterval(function() {
     secondsLeft--;
     if (secondsLeft === 0) {
@@ -36,61 +50,61 @@ setInterval(function() {
     } else {
         timer.textContent = "time:" + secondsLeft;
     }
-  }, 1000)
-// 4. 1st div display none
-// 5. 2nd div display visible
+  }, 1000);
 
-// 1. user clicks answer
-    // if correct, 
-        // "correct" appears on screen
-        // add one to score 
-    // if not correct 
-        // "incorrect" appears on screen
-        // time decreases
-// 2. new question and answers populate 
-// 3. repeat for each question
-    //  once last question is answered timer stops
-// 4. 2nd div display none
-// 5. 3rd div display visible 
 
-// 1. display score 
-// 2. when submitt button clicked, 
-    // add user input to highscores list 
+
+
+option1.addEventListener("click", function() {
+  event.stopPropagation();
+  // increment currentIndex so we know which one we're on
+  currentIndex++;
+
+  score ++;
+  //  if reached the end of the array, 
+  if (currentIndex >= questionsA.length) {
+      //   hide question div
+      QnADiv.style.visibility = "hidden";
+      // show all done div
+      allDoneDiv.style.visibility = "visible";
+      
+      
+      
+      
+    }
+    
+    // change the question information
+    // in the array using the currentIndex variable
+    questionText.textContent = questionsA[currentIndex]["title"];
+    
+    option1.textContent = questionsA[currentIndex]["choices"][0];
+    option2.textContent = questionsA[currentIndex]["choices"][1];
+    option3.textContent = questionsA[currentIndex]["choices"][2];
+    option4.textContent = questionsA[currentIndex]["choices"][3];
+    
+});
+
+clearInterval(secondsLeft);
+
+var endScore= score + 10 
+
+
+finalScore.textContent = ("Your Final Score Is:" + endScore);
+
+var initials = document.querySelector("#initials");
+
+submitScore.addEventListener("submit", function() {
     // save to local storage 
-    // 3rd div display none
-    // 4th div display visible
-    // view highscore button display none
+    localStorage.setItem("player", initials.value, endScore);
+    console.log(player);
+    allDoneDiv.style.visibility = "hidden";
+    highScoresDiv.style.visibility = "visible";
+    highScoreButton.style.visibility = "hidden";
 
-// 1. display high score list 
-// 2. if go back is clicked
-    // 4th div display none
-    // 1st div display visible
-// 3. if clear high scores is clicked
-    // list is cleared and removed from local storage
-
-// if timer runs out, brings to div 3
-
+    var lastUser = localStorage.getItem("player");
+    newScore.textContent = lastUser;
+    var newScore = document.createElement("li");
+    highScoresList.appendChild(newScore);
+});
 
 
-
-// 1st div display none, second div display visible
-// possible timer function
-// function changeValue() {
-//     document.getElementById("demo").innerHTML = ++value;
-//   }
-  
-//   var timerInterval = null;
-//   function start() {
-//     stop(); // stoping the previous counting (if any)
-//     value = 0;
-//     timerInterval = setInterval(changeValue, 1000);  
-//   }
-//   var stop = function() {
-//     clearInterval(timerInterval);
-//   }
-//   <p>A script on this page starts this clock:</p>
-  
-//   <p id="demo">0</p>
-  
-//   <button onclick="start()">Start time</button>
-//   <button onclick="stop()">Stop time</button>
