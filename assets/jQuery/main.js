@@ -66,7 +66,7 @@ function changeQuestions() {
     }
     // change the question information
     // in the array using the currentIndex variable
-    questionText.textContent = questionsA[currentIndex]["title"][0];
+    questionText.textContent = questionsA[currentIndex]["title"];
     option1.textContent = questionsA[currentIndex]["choices"][0];
     option2.textContent = questionsA[currentIndex]["choices"][1];
     option3.textContent = questionsA[currentIndex]["choices"][2];
