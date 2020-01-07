@@ -1,99 +1,179 @@
-var timer = document.querySelector("#timer") // timer Div
-var startButton = document.querySelector("#startButton"); //start quiz button
-var startDiv = document.querySelector("#firstDiv"); // Start Quiz Div
-var QnADiv = document.querySelector("#secondDiv"); //Question and Answer Div
-var allDoneDiv = document.querySelector("#thirdDiv"); //all done/enter initials DIV
-var highScoresDiv = document.querySelector("#fourthDiv"); //High Scores Div
-var options = document.querySelectorAll(".btn btn-primary btn-sm options"); //all answer buttons
-var questionText = document.querySelector("#questionText"); //text area where questions will populate
-var option1 = document.querySelector("#button1"); // individual question buttons
-var option2 = document.querySelector("#button2");
-var option3 = document.querySelector("#button3");
-var option4 = document.querySelector("#button4");
-var secondsLeft = 30; //variable used to track seconds in timer function
+// create a variable for score
 var score = 0;
-var highScoresList = document.querySelector("#highScoresList")
+// create a variable for time
+var secondsLeft = 10;
 
-// resets the div visability to a default starting point 
-function resetGame() {
-    startDiv.style.visibility = "visible";
-    timer.style.visibility = "hidden";
-    QnADiv.style.visibility = "hidden";
-    allDoneDiv.style.visibility = "hidden";
-    highScoresDiv.style.visibility = "hidden";
-};``
+var currentIndex = 0;
+// create a variable for the quiz box div
+var quizBox = document.querySelector("#quizBox");
+// create a variable for div title
+var heading = document.querySelector("#heading");
 
-function clearInterval() {
-    secondsLeft = 0;
-    
-}
-resetGame();
+var intro = document.querySelector("#intro");
+// create a variable for timer div
+var timerText = document.querySelector("#timerText");
+// create a div for the start button
+var startButton = document.querySelector("#startButton");
+// create a var for view highscores button
+var HSButton = document.querySelector("#HSButton");
+// convert the questions object into an array and create a variable with that value
+var questionsArray = Object.values(questionsObj);
+var questionOne = document.createElement("BUTTON");
 
-//Timer function
-setInterval(function() {
-    secondsLeft--;
-    if (secondsLeft === 0) {
-        QnADiv.style.visibility = "hidden";
-        allDoneDiv.style.visibility = "visible";
-        timer.style.visibility = "hidden";
-    } else {
-        timer.textContent = "time:" + secondsLeft;
-    }
-}, 1000);
+var questionTwo = document.createElement("BUTTON");
+var questionThree = document.createElement("BUTTON");
+var questionFour = document.createElement("BUTTON");
+console.log(questionsArray);
 
-//start button functionality
-function startQuiz() {
-    startDiv.style.visibility = "hidden";// Question and Answer Div appears 
-    QnADiv.style.visibility = "visible"; // Questions and Answers Div Appear
-    timer.style.visibility = "visible"; //Timer becomes visible 
+// Timer function
+function countDown() {
+
+    setInterval(function() {
+        secondsLeft--;
+        if (secondsLeft === 0) {
+        heading.textContent = ("Game Over! Your Score is" + score)
+        questionOne.style.visibility = "hidden";
+        questionTwo.style.visibility = "hidden";
+        questionThree.style.visibility = "hidden";
+        questionFour.style.visibility = "hidden";
+      
+            timerText.style.visibility = "hidden";
+        } else {
+            timerText.textContent = ("Time:" + secondsLeft);
+        };
+       
+    }, 1000);
 };
 
-startButton.addEventListener("click", startQuiz); //adds event listener to start button
+//start button functionality
 
-var questionsA = Object.values(questions);
-console.log(questionsA); //converts the questions object into an array
+
+
+startButton.addEventListener("click", function () {
+    
+    quizBox.append(questionOne);
+    quizBox.append(questionTwo);
+    quizBox.append(questionThree);
+    quizBox.append(questionFour);
+    changeQuestions();
+    startButton.style.visibility = "hidden"
+    intro.style.visibility = "hidden";
+    countDown();
+}); //adds event listener to start button
+
+
+
 var currentIndex = 0;
 function changeQuestions() {
     event.stopPropagation();
   // increment currentIndex so we know which one we're on
   currentIndex++;
   //  if reached the end of the array, 
-  if (currentIndex >= questionsA.length) {
-      
-      QnADiv.style.visibility = "hidden"; //Q&A Div will be hidden
-      allDoneDiv.style.visibility = "visible"; // All done/initials div will appear
+  if (currentIndex > questionsArray.length) {
+    heading.textContent = ("Game Over! Your Score is" + score)
+    questionOne.style.visibility = "hidden";
+    questionTwo.style.visibility = "hidden";
+    questionThree.style.visibility = "hidden";
+    questionFour.style.visibility = "hidden";
+    timerText.style.visibility = "hidden";
+
       clearInterval();
     }
     // change the question information
     // in the array using the currentIndex variable
-    questionText.textContent = questionsA[currentIndex]["title"];
-    option1.textContent = questionsA[currentIndex]["choices"][0];
-    option2.textContent = questionsA[currentIndex]["choices"][1];
-    option3.textContent = questionsA[currentIndex]["choices"][2];
-    option4.textContent = questionsA[currentIndex]["choices"][3];
+    heading.textContent = questionsArray[currentIndex]["title"];
+    questionOne.textContent = questionsArray[currentIndex]["choices"][0];
+    questionTwo.textContent = questionsArray[currentIndex]["choices"][1];
+    questionThree.textContent = questionsArray[currentIndex]["choices"][2];
+    questionFour.textContent = questionsArray[currentIndex]["choices"][3];
 
-    scoreKeeper();
+    
 };
 
-option1.addEventListener("click", changeQuestions); //when each button is clicked, change question function is run
-option2.addEventListener("click", changeQuestions);
-option3.addEventListener("click", changeQuestions);
-option4.addEventListener("click", changeQuestions);
+questionOne.addEventListener("click", function() {
+  changeQuestions();
+  score = (score + 2);  
+});  //when each button is clicked, change question function is run
+questionTwo.addEventListener("click", function() {
+    changeQuestions();
+secondsLeft = 5;
+});
+questionThree.addEventListener("click", function() {
+    changeQuestions();
+    secondsLeft = 2;
+});
+questionFour.addEventListener("click", function() {
+    changeQuestions();
+    secondsLeft = 0;
+});
 
-// function scoreKeeper() {
+
+
+
+// var li = document.createElement("li");
+// var lastUser = localStorage.getItem("player");
+// var initials = document.querySelector("#initials").value; //value of initials box
+
+// function saveScore() {
+//     window.localStorage.setItem(lastUser, initials);
     
 // }
 
-var li = document.createElement("li");
-var lastUser = localStorage.getItem("player");
-var initials = document.querySelector("#initials").value; //value of initials box
-
-function saveScore() {
-    window.localStorage.setItem('player', initials);
-    allDoneDiv.style.visibility = "hidden";
-    highScoresDiv.style.visibility = "visible";
-}
-
-submitScore.addEventListener("click", saveScore);
+// submitScore.addEventListener("click", saveScore);
 
   
+
+
+   
+
+//     for (var i=0; i < questionsArray.length; i++) {
+//     heading.textContent = questionsArray[i]["title"];
+
+//     questionOne.textContent = questionsArray[i]["choices"][0];
+//     questionTwo.textContent = questionsArray[i]["choices"][1];
+//     questionThree.textContent = questionsArray[i]["choices"][2];
+//     questionFour.textContent = questionsArray[i]["choices"][3];
+
+//     }
+
+//     // heading.textContent = ("Game Over! Your Score is" + score)
+
+// };
+// // // add click event to start button
+// startButton.addEventListener("click", function() {
+//     //begin countdown
+
+//     startButton.style.visibility = "hidden"
+//     countDown();
+    
+//     displayQuestions();
+      
+// });
+// questionOne.addEventListener("click", displayQuestions);
+// questionTwo.addEventListener("click", displayQuestions);
+// questionThree.addEventListener("click", displayQuesti
+    //         // replace body with answer buttons
+     
+
+// }
+
+
+// create a function to cycle through questions
+
+    // if the correct answer is selected 
+    // score++
+
+    // else time -2
+
+// if time == 0 
+    // score = final score
+    // display final score 
+    // display initials text box 
+
+// add a click event to the save score button 
+    // store the textbox value  + final score to local storage
+
+// add click event to the view highscores button
+    // display higscores header
+    // display local storage list
+

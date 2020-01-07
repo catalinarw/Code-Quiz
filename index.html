@@ -1,116 +1,26 @@
-<!doctype html>
-
-<html lang="en">
-
-  <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/style.css">
-
-    <title>Catalina's Code Quiz</title>
-
-  </head>
-
-  <body>
-
-    <!--view high scores and timer -->
-    <header class="container">
-
-        <div class="row">
-
-            <div class="col">
-
-                <button type="button" class="btn btn-link" id="highScoresButton">View Highscores</button>
-
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Code Quiz</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.6/dist/css/uikit.min.css" />
+        
+    </head>
+    <body>
+        <!-- container DIV -->
+        <div class="uk-container">
+            <button id="HSButton" class="uk-button uk-button-default uk-position-top-left">View High-Scores</button>
+            <p id="timerText" class="uk-position-top-right">Time: 0 Seconds</p>
+            <div id="quizBox" class="uk-card uk-card-default uk-card-body uk-width-1-2@m uk-position-center">
+                <h3 id="heading"class="uk-card-title">Default</h3>
+                <p id="intro">Try to answer the following code-related questions within the time limit. Keep in mind that inncorrect answers will penalize your time by 10 seconds. Press the "Start Quiz" button to begin the game.</p>
+                <button id="startButton" class="uk-button uk-button-default">Start Quiz</button>
             </div>
-
-            <div class="col-5"></div>
-
-            <div class="col" id="timer">
-
-                <p>Time: 0</p>
-
-            </div>
-
         </div>
-
-        
-    </header>
-
-    <!-- container div -->
-    <div id="parentDiv">
-
-        <!-- Start Challenge div  -->
-        <div class="allDivs" id="firstDiv">
-
-            <h1>Coding Quiz Challenge</h1>
-       
-            <p>Try to answer the following code-related questions within the time limit. Keep in mind that inncorrect answers will penalize your score/time by 10 seconds</p>
-
-            <button type="button" class="btn btn-primary btn-sm" id="startButton">Start Quiz</button>
-
-        </div>
-        
-        <!-- question and answer div -->
-        <div class="allDivs" id="secondDiv">
-            <!-- Question -->
-            <h2 id="questionText">Commonly used data types DO NOT include:</h2>
-
-            <!-- Choices -->
-            <button type="button" class="btn btn-primary btn-sm options" id="button1" >strings</button>
-            <br>
-            <button type="button" class="btn btn-primary btn-sm options" id="button2">booleans</button>
-            <br>
-            <button type="button" class="btn btn-primary btn-sm options" id="button3">alerts</button>
-            <br>
-            <button type="button" class="btn btn-primary btn-sm options"id="button4" >numbers</button>
-        
-        </div>
-        
-        <!-- all done div -->
-        <div class="allDivs" id="thirdDiv">
-            <h1>All Done!</h1>
-
-            <p id="finalScore">Your Final Score Is: </p>
-    
-            <form id="initials">
-
-            <!-- Initials text box -->
-            Enter Initials: <input type="text">
-            <!-- Submit Score Button -->
-            <button type="button" class="btn btn-primary" id="submitScore">Submit</button>
-
-            </form>
-        </div>
-
-      
-        <!-- highscore div -->
-        <div class="allDivs" id="fourthDiv">
-            <h1>High Scores</h1>
-
-            <ul id="highScoresList"></ul>
-
-            <button type="button" class="btn btn-primary btn-sm">Go Back</button>
-
-            <button type="button" class="btn btn-primary btn-sm">Clear High Scores</button>
-        
-        </div>
-
-    </div> 
-
-    
-    <script src="assets/jQuery/questions.js"></script>
-    <script src="assets/jQuery/main.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+        <script src="assets/jQuery/questions.js"></script>
+        <script src="assets/jQuery/main.js"></script>
+        <script src="js/uikit.min.js"></script>
+        <script src="js/uikit-icons.min.js"></script>
+    </body>
 </html>
-
-
-
-
-
