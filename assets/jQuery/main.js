@@ -96,15 +96,15 @@ questionOne.addEventListener("click", function() {
 });  //when each button is clicked, change question function is run
 questionTwo.addEventListener("click", function() {
     changeQuestions();
-secondsLeft = 5;
+    secondsLeft--;
 });
 questionThree.addEventListener("click", function() {
     changeQuestions();
-    secondsLeft = 2;
+    secondsLeft--;
 });
 questionFour.addEventListener("click", function() {
     changeQuestions();
-    secondsLeft = 0;
+    secondsLeft--;
 });
 
 
@@ -125,55 +125,4 @@ questionFour.addEventListener("click", function() {
 
 
    
-
-//     for (var i=0; i < questionsArray.length; i++) {
-//     heading.textContent = questionsArray[i]["title"];
-
-//     questionOne.textContent = questionsArray[i]["choices"][0];
-//     questionTwo.textContent = questionsArray[i]["choices"][1];
-//     questionThree.textContent = questionsArray[i]["choices"][2];
-//     questionFour.textContent = questionsArray[i]["choices"][3];
-
-//     }
-
-//     // heading.textContent = ("Game Over! Your Score is" + score)
-
-// };
-// // // add click event to start button
-// startButton.addEventListener("click", function() {
-//     //begin countdown
-
-//     startButton.style.visibility = "hidden"
-//     countDown();
-    
-//     displayQuestions();
-      
-// });
-// questionOne.addEventListener("click", displayQuestions);
-// questionTwo.addEventListener("click", displayQuestions);
-// questionThree.addEventListener("click", displayQuesti
-    //         // replace body with answer buttons
-     
-
-// }
-
-
-// create a function to cycle through questions
-
-    // if the correct answer is selected 
-    // score++
-
-    // else time -2
-
-// if time == 0 
-    // score = final score
-    // display final score 
-    // display initials text box 
-
-// add a click event to the save score button 
-    // store the textbox value  + final score to local storage
-
-// add click event to the view highscores button
-    // display higscores header
-    // display local storage list
 
